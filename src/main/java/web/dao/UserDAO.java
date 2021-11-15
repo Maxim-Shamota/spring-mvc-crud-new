@@ -9,7 +9,9 @@ public interface UserDAO {
 
     void saveUser(User user);
 
-    User getUser(Integer id);
+    User showUser(Integer id);
 
-    void deleteUser(Integer id);
+    void removeUserById(Integer id);
+
+    void updateUser(User user);
 }
