@@ -3,36 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>User</title>
+  <style>
+    table th, table td {padding: 10px;}
+    .fstyle {
+      font-style: normal;
+      text-decoration: none;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
+<h2>User</h2>
 <div>
-  <table>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Age</th>
-      <th>E-mail</th>
-    </tr>
+  <table border="1">
+    <thread>
+      <tr>
+        <th><h2>ID</h2></th>
+        <th><h2>Name</h2></th>
+        <th><h2>Surname</h2></th>
+        <th><h2>Age</h2></th>
+        <th><h2>E-mail</h2></th>
+      </tr>
+    </thread>
+    <tbody>
     <tr>
       <td th:text="${user.getId()}">Id</td>
       <td th:text="${user.getName()}">Name</td>
       <td th:text="${user.getSurname()}">Surname</td>
-      <td th:text="${user.getAge()}">Age</td>
+      <td th:text="${user.getAge()}" class="fstyle">Age</td>
       <td th:text="${user.getEmail()}">E-mail</td>
-      <td>
-        <form th:action="@{/edit/{id}(id=${user.id})}" th:object="${user}">
-          <button type="submit">Edit</button>
-        </form>
-      </td>
-      <td>
-        <form th:action="@{/delete(id=${user.id})}" th:object="${user}">
-          <input type="hidden" name="id" th:value="${user.id}">
-          <button type="submit">Delete</button>
-        </form>
-      </td>
-
     </tr>
+    </tbody>
   </table>
   <br/>
   <form th:action="@{/users}">

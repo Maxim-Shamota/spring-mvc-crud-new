@@ -14,4 +14,6 @@ public interface UserDAO {
     User getUserById(Integer id);
 
     List<User> getAllUsers();
+
+
 }

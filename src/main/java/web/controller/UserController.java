@@ -53,6 +53,13 @@ public class UserController {
         return "editUser";
     }
 
+    @GetMapping(value = "users/show/{id}")
+    public String showUser(ModelMap model, @PathVariable("id") Integer id) {
+        User user = userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "show";
+    }
+
     @PostMapping(value = "users/edit")
     public String edit(@ModelAttribute("user") User user) {
         userService.editUser(user);
