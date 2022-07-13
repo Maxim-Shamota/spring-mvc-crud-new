@@ -17,11 +17,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/test")
-    public String test() {
-        return "test";
-    }
-
     @GetMapping(value = "/")
     public String welcome() {
         return "redirect:/users";
@@ -33,13 +28,6 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping(value = "users/add")
-    public String addUser(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "addUser";
-    }
-
     @PostMapping(value = "users/add")
     public String addUser(@ModelAttribute("user") User user) {
         userService.addUser(user);
@@ -47,10 +35,16 @@ public class UserController {
     }
 
     @GetMapping(value = "users/edit/{id}")
-    public String editUser(ModelMap model, @PathVariable("id") Integer id) {
+    public String edit(ModelMap model, @PathVariable("id") Integer id) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
         return "editUser";
+    }
+
+    @PostMapping(value = "users/edit")
+    public String edit(@ModelAttribute("user") User user) {
+        userService.editUser(user);
+        return "redirect:/users";
     }
 
     @GetMapping(value = "users/show/{id}")
@@ -60,21 +54,10 @@ public class UserController {
         return "show";
     }
 
-    @PostMapping(value = "users/edit")
-    public String edit(@ModelAttribute("user") User user) {
-        userService.editUser(user);
-        return "redirect:/users";
-    }
-
     @GetMapping("users/delete")
     public String deleteUserById(@RequestParam("id") Integer id) {
         userService.deleteUser(id);
         return "redirect:/users";
     }
 
-    @GetMapping("users/{id}")
-    public String show(@PathVariable("id") Integer id, ModelMap modelMap) {
-        modelMap.addAttribute("user", userService.getUserById(id));
-        return "show";
-    }
 }

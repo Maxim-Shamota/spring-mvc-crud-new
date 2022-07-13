@@ -8,10 +8,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "surname")
     private String surname;
@@ -25,8 +25,8 @@ public class User {
     public User() {
     }
 
-    public User(String name, String surname, Integer age, String email) {
-        this.name = name;
+    public User(String username, String surname, Integer age, String email) {
+        this.username = username;
         this.surname = surname;
         this.age = age;
         this.email = email;
@@ -41,11 +41,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String username) {
+        this.username = username;
     }
 
     public String getSurname() {

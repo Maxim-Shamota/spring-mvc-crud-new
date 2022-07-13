@@ -11,7 +11,9 @@ import javax.servlet.ServletException;
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
-    protected Class<?>[] getRootConfigClasses() { return new Class<?>[0]; }
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class<?>[0];
+    }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
@@ -31,7 +33,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
 
     private void registerHiddenFieldFilter(ServletContext servletContext) {
         servletContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 
     @Override
@@ -39,6 +41,6 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);
-        return new Filter[] {(Filter) filter};
+        return new Filter[]{(Filter) filter};
     }
 }

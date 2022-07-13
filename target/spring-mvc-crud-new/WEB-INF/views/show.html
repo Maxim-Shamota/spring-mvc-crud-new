@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>User</title>
+    <meta charset="UTF-8">
+    <title>User</title>
 </head>
 <body>
 <div>
-  <table>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Age</th>
-      <th>E-mail</th>
-    </tr>
-    <tr>
-      <td th:text="${user.getId()}">Id</td>
-      <td th:text="${user.getName()}">Name</td>
-      <td th:text="${user.getSurname()}">Surname</td>
-      <td th:text="${user.getAge()}">Age</td>
-      <td th:text="${user.getEmail()}">E-mail</td>
-      <td>
-        <form th:action="@{/edit/{id}(id=${user.id})}" th:object="${user}">
-          <button type="submit">Edit</button>
-        </form>
-      </td>
-      <td>
-        <form th:action="@{/delete(id=${user.id})}" th:object="${user}">
-          <input type="hidden" name="id" th:value="${user.id}">
-          <button type="submit">Delete</button>
-        </form>
-      </td>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>E-mail</th>
+        </tr>
+        <tr>
+            <td th:text="${user.getId()}">Id</td>
+            <td th:text="${user.getName()}">Name</td>
+            <td th:text="${user.getSurname()}">Surname</td>
+            <td th:text="${user.getAge()}">Age</td>
+            <td th:text="${user.getEmail()}">E-mail</td>
+            <td>
+                <form th:action="@{/edit/{id}(id=${user.id})}" th:object="${user}">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/delete(id=${user.id})}" th:object="${user}">
+                    <input type="hidden" name="id" th:value="${user.id}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
 
-    </tr>
-  </table>
-  <br/>
-  <form th:action="@{/users}">
-    <button type="submit">back to list</button>
-  </form>
+        </tr>
+    </table>
+    <br/>
+    <form th:action="@{/users}">
+        <button type="submit">back to list</button>
+    </form>
 </div>
 </body>
 </html>
